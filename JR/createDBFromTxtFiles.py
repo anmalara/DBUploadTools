@@ -22,6 +22,12 @@ if options.era is None:
 
 if options.path is None:
     raise Exception("No path specified. Use the 'path' command line argument to set one.\n\tcmsRun <configuration> path=<era>")
+    
+# Check if a db-file with the same name already exists.
+# Exit if it does, otherwise horrible things happen.
+
+if os.path.exists(options.era +".db"):
+    raise Exception("A DB-file with the same name already exists in the working directory. Please delete or rename it and try again.")
 
 jer_type    = 'JetResolutionObject'
 ERA         = options.era
