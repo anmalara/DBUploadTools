@@ -1,4 +1,5 @@
 from FWCore.ParameterSet.VarParsing import VarParsing
+import os.path
 options = VarParsing()
 
 options.register('era',
@@ -17,6 +18,12 @@ options.parseArguments()
 
 if options.era is None:
     raise Exception("No era specified. Use the 'era' command line argument to set one.\n\tcmsRun <configuration> era=<era>")
+    
+# Check if a db-file with the same name already exists.
+# Exit if it does, otherwise horrible things happen.
+
+if os.path.exists(options.era +".db"):
+    raise Exception("A DB-file with the same name already exists in the working directory. Please delete or rename it and try again.")
 
 if options.path is None:
     raise Exception("No path specified. Use the 'path' command line argument to set one.\n\tcmsRun <configuration> path=<era>")
