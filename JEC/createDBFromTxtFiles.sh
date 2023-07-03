@@ -1,10 +1,11 @@
 #! /bin/sh
 
-ERA=$1
-DIR=$PWD/../../JECDatabase/textFiles/$ERA
 
-if [ $# -ne 1 ]; then
-    echo "Usage: ./createDBFromTxtFiles.sh ERA"
+ERA=$2
+DIR=$1/$ERA
+
+if [ $# -ne 2 ]; then
+    echo "Usage: ./createDBFromTxtFiles.sh /nfs/dust/cms/user/amalara/WorkingArea/UHH2_106X_v2_UL/CMSSW_10_6_28/src/UHH2/JECDatabase/textFiles Winter23Prompt23_V1_MC"
     exit 1
 fi
 

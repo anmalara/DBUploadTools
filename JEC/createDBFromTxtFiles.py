@@ -35,8 +35,10 @@ algsizetypeAK8 = {'ak': [8]} #other options: ic, kt and any cone size
 #jettypeAK4 = ['pf', 'pfchs', 'puppi']# for Summer16_V1_MC 
 
 # Standard ########################
-jettypeAK4 = ['pf', 'pfchs', 'puppi', 'calo', 'jpt'] 
-jettypeAK8 = ['pf', 'pfchs', 'puppi'] 
+# jettypeAK4 = ['pf', 'pfchs', 'puppi', 'calo', 'jpt'] 
+# jettypeAK8 = ['pf', 'pfchs', 'puppi'] 
+jettypeAK4 = ['pfchs', 'puppi']
+jettypeAK8 = ['puppi']
 #####################################################
 
 # for Spring16_25nsFastSimV1_MC
@@ -59,11 +61,11 @@ if not 'data' in options.path:
 
 
 ALGO_LIST = []
-for k, v in algsizetypeAK4.iteritems():
+for k, v in algsizetypeAK4.items():
     for s in v:
         for j in jettypeAK4:
             ALGO_LIST.append(str(k.upper()+str(s)+j.upper().replace("CHS","chs").replace("PUPPI","PFPuppi").replace("CALO","Calo")))
-for k, v in algsizetypeAK8.iteritems():
+for k, v in algsizetypeAK8.items():
     for s in v:
         for j in jettypeAK8:
             ALGO_LIST.append(str(k.upper()+str(s)+j.upper().replace("CHS","chs").replace("PUPPI","PFPuppi")))
